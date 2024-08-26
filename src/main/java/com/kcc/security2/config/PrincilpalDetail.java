@@ -1,6 +1,7 @@
 package com.kcc.security2.config;
 
 import com.kcc.security2.model.User;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,13 +10,12 @@ import java.util.Collection;
 import java.util.List;
 
 //authication을 만들기위함
+@Data
 public class PrincilpalDetail implements UserDetails{
     private User user;
     public PrincilpalDetail(User user) {
         this.user = user;
     }
-
-
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

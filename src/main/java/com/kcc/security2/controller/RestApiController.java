@@ -31,4 +31,20 @@ public class RestApiController {
     }
 
 
+
+    @GetMapping("/manager/mm")
+    public String manager(){
+        return "manager";
+    }
+
+    @GetMapping("/admin/admin")
+    public String admin(){
+        return "admin";
+    }
+
+    @GetMapping("/user")
+    public String user(){
+        return "user";
+    }
+
 }
