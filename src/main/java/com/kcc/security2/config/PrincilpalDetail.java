@@ -16,6 +16,7 @@ public class PrincilpalDetail implements UserDetails{
     }
 
 
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();

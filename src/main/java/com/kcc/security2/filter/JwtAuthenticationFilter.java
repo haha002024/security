@@ -1,6 +1,8 @@
 package com.kcc.security2.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.kcc.security2.config.PrincilpalDetail;
+import com.kcc.security2.config.PrincipalDetailService;
 import com.kcc.security2.model.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,6 +21,7 @@ import java.security.Principal;
 public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
     //AuthenticationManager 은 정해진것이다.
     private final AuthenticationManager authenticationManager;
+
 
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
@@ -40,7 +43,8 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             // principal detail에 전달함
             Authentication authentication = authenticationManager.authenticate(authenticationToken);
 
-            Principal principal = (Principal) authentication.getPrincipal();
+            PrincilpalDetail principalDetail = (PrincilpalDetail) authentication.getPrincipal();
+            System.out.println(principalDetail);
             return  authentication;
 
         }catch(IOException e){
